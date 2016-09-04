@@ -16,7 +16,7 @@ namespace :middleman do
   desc "Archive files to #{archive_name}"
   file archive_name => source_dir do |t|
     run_locally do
-      execute :middleman, 'build', *middleman_options
+      execute :npm, 'run build -- ', *middleman_options
 
       Capistrano::Middleman::Utils.zip(
         build_dir,
